@@ -15,7 +15,13 @@ No additional html elements required except a ```<script>``` tag for referencing
 ```
 #### The code
 ```
-notif([message_text], [button_text], [button_target_url]);
+<link rel="stylesheet" type="text/css" href="notif.css" > <!-- import the default css -->
+```
+```
+<script src="notif.js"></script> <!-- import the js -->
+```
+```
+notif([message_text], [button_text], [button_target_url]); //run the code
 ```
 The only necessary parameter is the ```[message_text]```, the rest are optional.
 #### NOTE
