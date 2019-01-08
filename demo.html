@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>notif demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="icon" href="favicon.png">
+
+    <style>
+        body{
+            font-family: montserrat;
+            margin: 0;
+            min-height: 100vh;
+        }
+        *{
+            transition: all 0.2s;
+            outline: none;
+        }
+        div.demo{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 300px;
+            color: #004E64;
+        }
+        button.demo{
+            display: block;
+            width: 100%;
+            padding: 20px 30px;
+            margin: 20px 0;
+            font-family: inherit;
+            font-size: 1.5rem;
+            background-color: transparent;
+            color: #0076a0;
+            border: 1px solid #0076a0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button.demo:hover{
+            color: white;
+            background-color: #0076a0;
+        }
+
+        h1{
+            display: block;
+            position: fixed;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 100vw;
+            max-width: 1000px;
+            margin: 0;
+            color: rgb(235, 235, 235);
+            font-size: 30vmin;
+            z-index: -1;
+        }
+        h1.notif{
+            top: 0;
+            text-align: left;
+        }
+        h1.demo{
+            bottom: 0;
+            text-align: right;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <h1 class="notif">notif</h1>
+    <div class="demo">
+        <button class="demo" onclick="notif('This is a text message!')">Text Message</button>
+        <button class="demo" onclick="notif('This one has a button!', 'Google', 'https://google.com')">Text + Button</button>
+    </div>
+    <h1 class="demo">demo</h1>
+
+    <link rel="stylesheet" href="notif.css">
+    <script src="notif.js"></script>
+</body>
+</html>
