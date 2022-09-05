@@ -1,4 +1,5 @@
-div.notif, div.notif *{
+/* wrapper element for notification */
+div.notif-wrapper, div.notif-wrapper *{
 	font-family: inherit;
 	box-sizing: border-box;
 	text-decoration: none;
@@ -7,8 +8,7 @@ div.notif, div.notif *{
 	-moz-transition: all 0.2s;
 	-o-transition: all 0.2s;
 }
-
-div.notif{
+div.notif-wrapper{
 	display: flex;
 	position: fixed;
 	top: -100px;
@@ -33,7 +33,9 @@ div.notif{
 	-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
 	z-index: 4;
 }
-div.notif .button{
+
+/* button in the notification */ 
+div.notif-wrapper .notif-action{
 	display: block;
 	margin: 0 30px;
 	padding: 10px 20px;
@@ -48,12 +50,14 @@ div.notif .button{
 	-ms-border-radius: 5px;
 	cursor: pointer;
 }
-div.notif .button:hover{
+div.notif-wrapper .notif-action:hover{
 	color: black;
 	background-color: white;
 	border-color: white;
 }
-div.notif .close{
+
+/* notification close button */
+div.notif-wrapper .notif-close{
 	display: flex;
 	position: absolute;
 	top: 50%;
@@ -78,10 +82,11 @@ div.notif .close{
 	-moz-user-select: none;
 	-ms-user-select: none;
 }
-div.notif .close:hover{
+div.notif-wrapper .notif-close:hover{
 	color: black;
 	background-color: white;
 }
+
 /* .notif .close span{
 	position: absolute;
 	top: calc(50% - 3px);
@@ -98,7 +103,7 @@ div.notif .close:hover{
 	-moz-transition: all 0s;
 	-o-transition: all 0s;
 } */
-.notif .close span{
+div.notif-wrapper .notif-close span{
 	display: block;
 	height: 100%;
     font-size: 1.5rem;
