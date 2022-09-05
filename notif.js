@@ -1,35 +1,43 @@
-function notif(txt, btn_txt = '', href = ''){
-	a = document.createElement('div');
-	$(a).attr('class', 'notif');
+function notif(text, btn_text = '', href = ''){
+	// wrapper element for a notification
+	NotifWrapper = document.createElement('div');
+	$(NotifWrapper).attr('class', 'notif-wrapper');
 	
-	b = document.createElement('p');
-	$(b).attr('class', 'alert');
-	$(b).html(txt);
-	$(a).append(b);
+	// the text message in the notification
+	NotifMsg = document.createElement('p');
+	$(NotifMsg).attr('class', 'notif-alert');
+	$(NotifMsg).html(text);
+	$(NotifWrapper).append(NotifMsg);
 
-	if(btn_txt != ''){
-		c = document.createElement('a');
+	// button link to be added in the notification
+	if(btn_text != ''){
+		NotifAction = document.createElement('a');
 		if(href != ''){
-			$(c).attr('href', href);
+			$(NotifAction).attr('href', href);
 		}
-		$(c).attr('class', 'button');
-		$(c).html(btn_txt);
-		$(a).append(c);
+		$(NotifAction).attr('class', 'notif-action');
+		$(NotifAction).html(btn_text);
+		$(NotifWrapper).append(NotifAction);
 	}
 
-	d = document.createElement('div');
-	$(d).attr('class', 'close');
-	$(d).html('&times;');
-	$(a).append(d);
+	// notification close button
+	NotifClose = document.createElement('div');
+	$(NotifClose).attr('class', 'notif-close');
+	$(NotifClose).html('&times;');
+	$(NotifWrapper).append(NotifClose);
 	
-	$('body').append(a);
+	// append the notification wrapper element to the body
+	$('body').append(NotifWrapper);
+	
+	// delay display of notification by 10ms
 	setTimeout(function(){
-		$('.notif').css({
+		$('.notif-wrapper').css({
 			'top': 0
 		});
 	},10);
 
-	$('.notif .close').click(function(){
+	// notification close button on-click handler
+	$('.notif-wrapper .notif-close').click(function(){
 		$(this).parent().remove();
 	});
 }
